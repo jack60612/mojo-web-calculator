@@ -3,10 +3,9 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
-
 module.exports = {
   siteMetadata: {
-    title: `Chia to Mojo Calculator`,
+    title: `Chia™ to Mojo Calculator`,
     description: `Convert Chia to other denominations of Chia.`,
     author: `@jack60612`,
     siteUrl: `https://chiatomojo.com/`,
@@ -35,10 +34,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Chia to Mojo Calculator`,
+        name: `Chia™ to Mojo Calculator`,
         short_name: `XCH to Mojo`,
         lang: `en`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/jack-logo.svg`, // This path is relative to the root of the site.
         description: `Convert Chia to other denominations of Chia.`,
         start_url: `/`,
         background_color: `#f7f0eb`,
@@ -71,5 +70,19 @@ module.exports = {
         enableWebVitalsTracking: true,
       },
     },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // Arbitrary name for the remote schema Query type
+        typeName: "chiaInfo",
+        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+        fieldName: "chiaInfo",
+        // Url to query from
+        url: "https://api.xchscan.com/v1/graphql",
+        // refresh interval in seconds
+        refreshInterval: 60,
+        batch: true,
+      },
+    }
   ],
 }

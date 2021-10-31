@@ -76,7 +76,7 @@ function Seo({ description, lang, meta, title }) {
 Seo.defaultProps = {
   lang: `en`,
   meta: [],
-  description: ``,
+  description: `Convert Chia to other denominations of Chia.`,
 }
 
 Seo.propTypes = {

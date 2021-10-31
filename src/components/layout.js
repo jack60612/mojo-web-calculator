@@ -39,9 +39,12 @@ const Layout = ({ children }) => {
             marginTop: `2rem`,
           }}
         >
-          © {new Date().getFullYear()}, Built with
+          <a href="https://github.com/jack60612">Built by Jack Nelson <br/> </a>
+          © {new Date().getFullYear()} Jack Nelson, Built with
           {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          <a href="https://www.gatsbyjs.com">Gatsby <br/> </a>
+          <a href="https://xchscan.com/graphql-api">Powered by XCHscan.com APIs<br/></a>
+          <a>Chia is a registered trademark of Chia Network Inc, who have not endorsed and is not responsible for chiatomojo.com or its content.</a>
         </footer>
       </div>
     </>
