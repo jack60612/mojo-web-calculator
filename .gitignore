@@ -65,6 +65,11 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
+# Yarn
+yarn-error.log
+.pnp/
+.pnp.js
+
 # Yarn Integrity file
 .yarn-integrity
 
@@ -102,3 +107,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# For WebStorm
+.idea
+
+# For github pages.
+public
