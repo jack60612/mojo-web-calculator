@@ -6,42 +6,46 @@ import Seo from "../components/seo"
 class IndexPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { chia: 0, mojo: 0, chiaPrice: 0.0  };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChiaChange = this.handleChiaChange.bind(this);
+    this.handleMojoChange = this.handleMojoChange.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
+  handleChiaChange(event) {
+    this.setState({ value: event.target.chia });
+  }
+  handleMojoChange(event) {
+    this.setState({ value: event.target.mojo });
   }
 
   render() {
     return (
       <Layout>
         <Seo title="Home" />
-        <div className="container">
+        <div className="container text-center ">
           <div className="row">
             <div className="col">
-              <h4 className="text-center">XCH: temp</h4>
+              <h4>XCH: temp</h4>
             </div>
           </div>
           <div className="row">
             <div className="col">
               <label>
                 Chia:
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
+                <input type="number" value={this.state.chia} name="chia" onChange={this.handleChiaChange} />
               </label>
             </div>
             <div className="col">
               <label>
                 Mojo:
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
+                <input type="number" value={this.state.mojo} name="mojo" onChange={this.handleMojoChange} />
               </label>
             </div>
           </div>
           <div className="row">
             <div className="col">
-              <h4 className="text-center">XCH: temp</h4>
+              <h4>XCH: temp</h4>
             </div>
           </div>
         </div>
