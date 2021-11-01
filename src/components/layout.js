@@ -26,27 +26,45 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          <a href="https://github.com/jack60612">Built by Jack Nelson <br/> </a>
-          © {new Date().getFullYear()} Jack Nelson, Built with
+      <main>{children}</main>
+      {/* footer */}
+      <footer className="bg-light text-center " style={{marginTop: `2rem`}}>
+        {/* Grid Container */}
+        <div className="container p-4">
+
+          {/* Section: Social media */}
+          <section className="mb-4">
+            {/* Twitter */}
+            <a className="btn btn-primary btn-floating m-1" aria-label="Twitter Button" style={{backgroundColor: `#55acee`}} href="https://twitter.com/aJackNelson" role="button"><i className="bi bi-twitter"></i></a>
+
+            {/* Github */}
+            <a className="btn btn-primary btn-floating m-1" aria-label="Github Button" style={{backgroundColor: `#333333`}} href="https://github.com/jack60612/mojo-web-calculator.git" role="button"><i className="bi bi-github"></i></a>
+          </section>
+          {/* Section: Social media */}
+
+          {/* Section: Text */}
+          <section className="mb-4">
+            <p>
+              <a href="https://xchscan.com/graphql-api">Powered by XCHscan.com APIs<br/></a>
+              Chia is a registered trademark of Chia Network Inc, who have not endorsed and are not responsible for chiatomojo.com or its content.
+            </p>
+          </section>
+          {/* Section: Text */}
+
+        </div>
+        {/* Grid container */}
+
+        {/* Copyright */}
+        <div className="text-center p-3" style={{backgroundColor: `rgba(0, 0, 0, 0.2)`}}>
+          © {new Date().getFullYear()}
           {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby <br/> </a>
-          <a href="https://xchscan.com/graphql-api">Powered by XCHscan.com APIs<br/></a>
-          <a>Chia is a registered trademark of Chia Network Inc, who have not endorsed and is not responsible for chiatomojo.com or its content.</a>
-        </footer>
-      </div>
+          <a href="https://github.com/jack60612">Jack Nelson <br/> </a>
+          <a href="https://www.gatsbyjs.com">Built with Gatsby </a>
+        </div>
+        {/* Copyright */}
+
+      </footer>
+      {/* Footer */}
     </>
   )
 }
