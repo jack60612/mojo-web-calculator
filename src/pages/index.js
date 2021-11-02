@@ -1,4 +1,5 @@
 import * as React from "react"
+import { graphql } from 'gatsby'
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -6,17 +7,17 @@ import Seo from "../components/seo"
 class IndexPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { chia: 0, mojo: 0, chiaPrice: 0.0  };
+    this.state = { chia: 0.0, mojo: 0.0, chiaPrice: 0.0};
 
     this.handleChiaChange = this.handleChiaChange.bind(this);
     this.handleMojoChange = this.handleMojoChange.bind(this);
   }
 
   handleChiaChange(event) {
-    this.setState({ value: event.target.chia });
+    this.setState({ chia: event.target.value });
   }
   handleMojoChange(event) {
-    this.setState({ value: event.target.mojo });
+    this.setState({ mojo: event.target.value });
   }
 
   render() {
@@ -26,7 +27,7 @@ class IndexPage extends React.Component {
         <div className="container text-center ">
           <div className="row">
             <div className="col">
-              <h4>XCH: temp</h4>
+              <h4>XCH: ${this.props.data.chiaInfo.block_state[0]["chia_price"]}</h4>
             </div>
           </div>
           <div className="row">
@@ -45,7 +46,7 @@ class IndexPage extends React.Component {
           </div>
           <div className="row">
             <div className="col">
-              <h4>XCH: temp</h4>
+              <h4> Worth: ${this.state.chiaPrice}</h4>
             </div>
           </div>
         </div>
@@ -53,5 +54,15 @@ class IndexPage extends React.Component {
     )
   }
 }
+
+export const query = graphql`
+    query IndexPageQuery {
+        chiaInfo {
+            block_state {
+                chia_price
+            }
+        }
+    }
+`
 
 export default IndexPage
