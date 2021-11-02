@@ -15,9 +15,13 @@ class IndexPage extends React.Component {
 
   handleChiaChange(event) {
     this.setState({ chia: event.target.value });
+    this.setState({ mojo: (event.target.value * 1000000000000) });
+    this.setState({ chiaPrice: (event.target.value * parseFloat(this.props.data.chiaInfo.block_state[0]["chia_price"])) });
   }
   handleMojoChange(event) {
     this.setState({ mojo: event.target.value });
+    this.setState({ chia: (event.target.value /  1000000000000)});
+    this.setState({ chiaPrice: ((event.target.value /  1000000000000) * parseFloat(this.props.data.chiaInfo.block_state[0]["chia_price"])) });
   }
 
   render() {
