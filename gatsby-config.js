@@ -70,8 +70,8 @@ module.exports = {
         fieldName: "chiaInfo",
         // Url to query from
         url: "https://api.xchscan.com/v1/graphql",
-        // refresh interval in seconds
-        refreshInterval: 60,
+        // refetch interval in seconds
+        refetchInterval: 60,
         batch: true,
       },
     }
