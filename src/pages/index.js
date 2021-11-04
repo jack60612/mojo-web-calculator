@@ -21,7 +21,7 @@ class Index extends React.Component {
   handleMojoChange(event) {
     this.setState({ mojo: event.target.value });
     this.setState({ chia: (event.target.value /  1000000000000)});
-    this.setState({ chiaPrice: ((event.target.value /  1000000000000) * this.props.price) });
+    this.setState({ chiaPrice: ((event.target.value /  1000000000000) * this.props.price).toFixed(2) });
   }
 
   render() {
