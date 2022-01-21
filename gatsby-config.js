@@ -5,8 +5,8 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Chia™ to Mojo Calculator`,
-    description: `Convert Chia to other denominations of Chia.`,
+    title: `Chia® to Mojo Calculator`,
+    description: `Convert Chia to other denominations of Chia like the Mojo.`,
     author: `@jack60612`,
     siteUrl: `https://chiatomojo.com/`,
   },
