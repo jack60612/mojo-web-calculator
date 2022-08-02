@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Chia™ to Mojo Calculator`,
+        name: `Chia® to Mojo Calculator`,
         short_name: `XCH to Mojo`,
         lang: `en`,
         icon: `src/images/jack-logo.svg`, // This path is relative to the root of the site.
