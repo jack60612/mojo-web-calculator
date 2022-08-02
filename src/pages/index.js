@@ -35,8 +35,11 @@ class IndexPage extends React.Component {
   updateChiaAddress(event, puzzle_hash_hex = null, addr_prefix = null) {
     if (puzzle_hash_hex == null) {puzzle_hash_hex = event.target.value; addr_prefix = this.state.addr_prefix}
     // set ph
-    if (puzzle_hash_hex.length- 2 !== 0) { // if hex is not empty
-      this.setState({ puzzle_hash: formatHex(puzzle_hash_hex) });
+    this.setState({ puzzle_hash: formatHex(puzzle_hash_hex) });
+   if (puzzle_hash_hex === "0x") { // if hex is empty
+      this.setState({ puzzle_hash: "", chia_address: "" });
+    }
+    else if ((puzzle_hash_hex.length- 17) >= 0) { // if hex is not empty
       // get full puzzle hash
       let puzzle_hash = fromHex(sanitizeHex(puzzle_hash_hex));
       // get address
@@ -44,7 +47,7 @@ class IndexPage extends React.Component {
       this.setState({ chia_address: chia_address });
     }
     else {
-      this.setState({ puzzle_hash: "", chia_address: "" });
+      this.setState({ chia_address: "Incomplete Puzzle Hash" });
     }
   }
   updatePuzzleHash(event) {
@@ -54,8 +57,7 @@ class IndexPage extends React.Component {
     // convert address to puzzle hash
     if(chia_address.length >= 62) {
     try{
-      let { ph, prefix } = addressInfo(chia_address); // currently broken
-      console.log(ph, prefix);
+      const { hash: ph, prefix } = addressInfo(chia_address);
       // save new values
       this.setState({ puzzle_hash: formatHex(toHex(ph))});
       this.setState({ addr_prefix: prefix });
@@ -65,7 +67,6 @@ class IndexPage extends React.Component {
       this.setState({ puzzle_hash: "Invalid Address!"  });
     }}
     else {
-      console.log(chia_address, chia_address.length);
       this.setState({ puzzle_hash: "Incomplete Address." });
     }
 
